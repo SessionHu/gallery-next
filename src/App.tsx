@@ -2,13 +2,28 @@ import React from 'react';
 import styles from './App.module.scss'
 
 const Background: React.FC = () => {
+  const levels = 50;
+  const tableValues = Array.from({ length: levels + 1 }, (_, i) => (i * 1 / levels).toString()).join(' ');
   return (
-    <div className={styles.backgrounds}>
-    	<div></div>
-    	<div></div>
-    	<div></div>
-    	<div></div>
-    </div>
+    <>
+      <svg>
+        <defs>
+          <filter id="svg-filter">
+            <feComponentTransfer>
+              <feFuncR type="discrete" tableValues={tableValues} />
+              <feFuncG type="discrete" tableValues={tableValues} />
+              <feFuncB type="discrete" tableValues={tableValues} />
+            </feComponentTransfer>
+          </filter>
+        </defs>
+      </svg>
+      <div className={styles.backgrounds}>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </>
   );
 };
 
@@ -28,6 +43,6 @@ const App: React.FC = () => {
       </div>
     </>
   );
-}
+};
 
 export default App;
