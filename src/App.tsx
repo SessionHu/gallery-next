@@ -18,10 +18,7 @@ const Background: React.FC = () => {
         </defs>
       </svg>
       <div className={styles.backgrounds}>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+        { Array.from({ length: 4 }, () => <div></div>) }
       </div>
     </>
   );
