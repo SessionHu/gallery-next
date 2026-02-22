@@ -18,9 +18,29 @@ const Background: React.FC = () => {
         </defs>
       </svg>
       <div className={styles.backgrounds}>
-        { Array.from({ length: 4 }, () => <div></div>) }
+        { Array.from({ length: 4 }, (_, i) => <div key={i}></div>) }
       </div>
     </>
+  );
+};
+
+const NavBar: React.FC = () => {
+  return (
+    <nav className={styles.nav}>
+      <ul className={styles.navLeft}>
+        <li>
+          <a href="https://sess.xhustudio.eu.org/">Blog</a>
+        </li>
+        <li>
+          <a href="#">Gallery</a>
+        </li>
+      </ul>
+      <ul className={styles.navRight}>
+        <li>
+        	<a href="#">Settings</a>
+        </li>
+      </ul>
+    </nav>
   );
 };
 
@@ -29,8 +49,9 @@ const App: React.FC = () => {
   return (
     <>
       <Background />
-      <h1>SessXGallery Next</h1>
+      <NavBar />
       <div className={styles.card}>
+        <h1>SessXGallery Next</h1>
         <button onClick={() => setCount((count) => count + 1)}>
           Preparing for {count} time{count > 1 ? 's' : ''}
         </button>
